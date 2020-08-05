@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idlewow.user.mapper.UserAccountMapper">
+    <resultMap id="BaseResultMap" type="com.idlewow.user.model.UserAccount">
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="mail" property="mail"/>
+        <result column="phone" property="phone"/>
+        <result column="real_name" property="realName"/>
+        <result column="id_no" property="idNo"/>
+        <result column="status" property="status"/>
+        <result column="remark" property="remark"/>
+        <result column="register_ip" property="registerIp"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <!-- 注册 -->
+    <insert id="register">
+        insert into user_account (username, password, register_ip, create_user)
+        values (#{username}, #{password}, #{registerIp}, #{createUser})
+    </insert>
+    <!-- 登陆 -->
+    <select id="login" resultMap="BaseResultMap">
+        select *
+        from user_account
+        where username = #{username} and password = #{password} and is_delete = 0
+    </select>
+    <!-- id查询 -->
+    <select id="find" resultMap="BaseResultMap">
+        select *
+        from user_account
+        where id = #{id} and is_delete = 0
+    </select>
+    <!-- 根据用户名查找用户 -->
+    <select id="findByUsername" resultMap="BaseResultMap">
+        select *
+        from user_account
+        where username = #{username} and is_delete = 0
+    </select>
+    <!-- 列表查询总数 -->
+    <select id="count" resultType="int">
+        select count(1)
+        from map_mob
+        <where>
+            is_delete = 0
+            <if test="mapId != null">
+                and map_id = #{mapId}
+            </if>
+            <if test="faction != null">
+                and faction = #{faction}
+            </if>
+            <if test="mobClass != null">
+                and mob_class = #{mobClass}
+            </if>
+            <if test="mobType != null">
+                and mob_type = #{mobType}
+            </if>
+            <if test="levelStart != null">
+                and level &gt;= #{levelStart}
+            </if>
+            <if test="levelEnd != null">
+                and level &lt;= #{levelEnd}
+            </if>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+        </where>
+    </select>
+    <!-- 列表查询 -->
+    <select id="list" resultMap="BaseResultMap">
+        select *
+        from map_mob
+        <where>
+            is_delete = 0
+            <if test="mapId != null">
+                and map_id = #{mapId}
+            </if>
+            <if test="faction != null">
+                and faction = #{faction}
+            </if>
+            <if test="mobClass != null">
+                and mob_class = #{mobClass}
+            </if>
+            <if test="mobType != null">
+                and mob_type = #{mobType}
+            </if>
+            <if test="levelStart != null">
+                and level &gt;= #{levelStart}
+            </if>
+            <if test="levelEnd != null">
+                and level &lt;= #{levelEnd}
+            </if>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+        </where>
+        <if test="pageParam != null">
+            limit ${(pageParam.pageIndex - 1) * pageParam.pageSize}, ${pageParam.pageSize}
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="idlewow-hessian:war">
+    <output-path>$PROJECT_DIR$/idlewow-hessian/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>idlewow-hessian</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="idlewow-hessian-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="idlewow-hessian:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idlewow.map.mapper.WowMapMapper">
+    <resultMap id="BaseResultMap" type="com.idlewow.map.model.WowMap">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="occupy" property="occupy"/>
+        <result column="description" property="description"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <!-- 添加 -->
+    <insert id="insert">
+        insert into map (name, occupy, description, create_user)
+        values (#{name}, #{occupy}, #{description}, #{createUser})
+    </insert>
+    <!-- 批量添加 -->
+    <insert id="batchInsert">
+        insert into map (name, occupy, description, create_user)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.name}, #{item.occupy}, #{item.description}, #{item.createUser})
+        </foreach>
+    </insert>
+    <!-- 修改 -->
+    <update id="update">
+        update map
+        set name = #{name},
+            occupy = #{occupy},
+            description = #{description},
+            update_user = #{updateUser},
+            version = version + 1
+        where id = #{id} and is_delete = 0
+    </update>
+    <!-- 删除 -->
+    <update id="delete" parameterType="String">
+        update map
+        set is_delete = 1
+        where id = #{id}
+    </update>
+    <!-- id查询 -->
+    <select id="find" resultMap="BaseResultMap">
+        select *
+        from map
+        where id = #{id} and is_delete = 0
+    </select>
+    <!-- 列表查询总数 -->
+    <select id="count" resultType="int">
+        select count(1)
+        from map
+        <where>
+            is_delete = 0
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+        </where>
+    </select>
+    <!-- 列表查询 -->
+    <select id="list" resultMap="BaseResultMap">
+        select *
+        from map
+        <where>
+            is_delete = 0
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+        </where>
+        <if test="pageParam != null">
+            limit ${(pageParam.pageIndex - 1) * pageParam.pageSize}, ${pageParam.pageSize}
+        </if>
+    </select>
+    <!-- 根据地图名称查询 -->
+    <select id="findByName" resultMap="BaseResultMap">
+        select *
+        from map
+        where name = #{name} and is_delete = 0
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/idlewow.iml" filepath="$PROJECT_DIR$/idlewow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idlewow-core/idlewow-core.iml" filepath="$PROJECT_DIR$/idlewow-core/idlewow-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idlewow-facade/idlewow-facade.iml" filepath="$PROJECT_DIR$/idlewow-facade/idlewow-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idlewow-game/idlewow-game.iml" filepath="$PROJECT_DIR$/idlewow-game/idlewow-game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idlewow-hessian/idlewow-hessian.iml" filepath="$PROJECT_DIR$/idlewow-hessian/idlewow-hessian.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idlewow-rms/idlewow-rms.iml" filepath="$PROJECT_DIR$/idlewow-rms/idlewow-rms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idlewow-util/idlewow-util.iml" filepath="$PROJECT_DIR$/idlewow-util/idlewow-util.iml" />
+    </modules>
+  </component>
+</project>

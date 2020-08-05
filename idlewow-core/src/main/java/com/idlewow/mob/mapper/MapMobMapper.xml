@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idlewow.mob.mapper.MapMobMapper">
+    <resultMap id="BaseResultMap" type="com.idlewow.mob.model.MapMob">
+        <result column="id" property="id"/>
+        <result column="map_id" property="mapId"/>
+        <result column="map_name" property="mapName"/>
+        <result column="name" property="name"/>
+        <result column="faction" property="faction"/>
+        <result column="mob_class" property="mobClass"/>
+        <result column="mob_type" property="mobType"/>
+        <result column="level" property="level"/>
+        <result column="hp" property="hp"/>
+        <result column="damage" property="damage"/>
+        <result column="armour" property="armour"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <!-- 添加 -->
+    <insert id="insert">
+        insert into map_mob (map_id, map_name, name, faction, mob_class, mob_type, level, hp, damage, armour, create_user)
+        values (#{mapId}, #{mapName}, #{name}, #{faction}, #{mobClass}, #{mobType}, #{level}, #{hp}, #{damage}, #{armour}, #{createUser})
+    </insert>
+    <!-- 批量添加 -->
+    <insert id="batchInsert">
+        insert into map_mob (map_id, map_name, name, faction, mob_class, mob_type, level, hp, damage, armour, create_user)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.mapId}, #{item.mapName}, #{item.name}, #{item.faction}, #{item.mobClass}, #{item.mobType}, #{item.level}, #{item.hp}, #{item.damage}, #{item.armour}, #{item.createUser})
+        </foreach>
+    </insert>
+    <!-- 修改 -->
+    <update id="update">
+        update map_mob
+        set map_id = #{mapId},
+        map_name = #{mapName},
+        name = #{name},
+        faction = #{faction},
+        mob_class = #{mobClass},
+        mob_type = #{mobType},
+        level = #{level},
+        hp = #{hp},
+        damage = #{damage},
+        armour = #{armour},
+        update_user = #{updateUser},
+        version = version + 1
+        where id = #{id} and is_delete = 0
+    </update>
+    <!-- 删除 -->
+    <update id="delete" parameterType="String">
+        update map_mob
+        set is_delete = 1
+        where id = #{id}
+    </update>
+    <!-- id查询 -->
+    <select id="find" resultMap="BaseResultMap">
+        select *
+        from map_mob
+        where id = #{id} and is_delete = 0
+    </select>
+    <!-- 列表查询总数 -->
+    <select id="count" resultType="int">
+        select count(1)
+        from map_mob
+        <where>
+            is_delete = 0
+            <if test="mapId != null">
+                and map_id = #{mapId}
+            </if>
+            <if test="faction != null">
+                and faction = #{faction}
+            </if>
+            <if test="mobClass != null">
+                and mob_class = #{mobClass}
+            </if>
+            <if test="mobType != null">
+                and mob_type = #{mobType}
+            </if>
+            <if test="levelStart != null">
+                and level &gt;= #{levelStart}
+            </if>
+            <if test="levelEnd != null">
+                and level &lt;= #{levelEnd}
+            </if>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+        </where>
+    </select>
+    <!-- 列表查询 -->
+    <select id="list" resultMap="BaseResultMap">
+        select *
+        from map_mob
+        <where>
+            is_delete = 0
+            <if test="mapId != null">
+                and map_id = #{mapId}
+            </if>
+            <if test="faction != null">
+                and faction = #{faction}
+            </if>
+            <if test="mobClass != null">
+                and mob_class = #{mobClass}
+            </if>
+            <if test="mobType != null">
+                and mob_type = #{mobType}
+            </if>
+            <if test="levelStart != null">
+                and level &gt;= #{levelStart}
+            </if>
+            <if test="levelEnd != null">
+                and level &lt;= #{levelEnd}
+            </if>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+        </where>
+        order by map_id, level
+        <if test="pageParam != null">
+            limit ${(pageParam.pageIndex - 1) * pageParam.pageSize}, ${pageParam.pageSize}
+        </if>
+    </select>
+    <!-- 根据地图ID查询 -->
+    <select id="listByMapId" resultMap="BaseResultMap">
+        select *
+        from map_mob
+        where is_delete = 0 and map_id = #{mapId}
+        order by level
+    </select>
+</mapper>

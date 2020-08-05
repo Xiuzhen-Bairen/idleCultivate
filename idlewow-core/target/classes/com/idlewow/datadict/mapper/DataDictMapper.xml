@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idlewow.datadict.mapper.DataDictMapper">
+    <resultMap id="BaseResultMap" type="com.idlewow.datadict.model.DataDict">
+        <result column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="parent_code" property="parentCode"/>
+        <result column="value" property="value"/>
+        <result column="remark" property="remark"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <!-- 添加 -->
+    <insert id="insert">
+        insert into data_dict (code, parent_code, value, remark, create_user)
+        values (#{code}, #{parentCode}, #{value}, #{remark}, #{createUser})
+    </insert>
+    <!-- 批量添加 -->
+    <insert id="batchInsert">
+        insert into data_dict (code, parent_code, value, remark, create_user)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.code}, #{item.parentCode}, #{item.value}, #{item.remark}, #{item.createUser})
+        </foreach>
+    </insert>
+    <!-- 修改 -->
+    <update id="update">
+        update data_dict
+        set code = #{code},
+        parent_code = #{parentCode},
+        value = #{value},
+        remark = #{remark},
+        update_user = #{updateUser},
+        version = version + 1
+        where id = #{id} and is_delete = 0
+    </update>
+    <!-- 删除 -->
+    <update id="delete" parameterType="String">
+        update data_dict
+        set is_delete = 1
+        where id = #{id}
+    </update>
+    <!-- id查询 -->
+    <select id="find" resultMap="BaseResultMap">
+        select *
+        from data_dict
+        where id = #{id} and is_delete = 0
+    </select>
+    <!-- 列表查询总数 -->
+    <select id="count" resultType="int">
+        select count(1)
+        from data_dict
+        <where>
+            is_delete = 0
+            <if test="code != null and code != ''">
+                and code = #{code}
+            </if>
+            <if test="parentCode != null and parentCode != ''">
+                and parent_code = #{parentCode}
+            </if>
+        </where>
+    </select>
+    <!-- 列表查询 -->
+    <select id="list" resultMap="BaseResultMap">
+        select *
+        from data_dict
+        <where>
+            is_delete = 0
+            <if test="code != null and code != ''">
+                and code = #{code}
+            </if>
+            <if test="parentCode != null and parentCode != ''">
+                and parent_code = #{parentCode}
+            </if>
+        </where>
+        order by code
+        <if test="pageParam != null">
+            limit ${(pageParam.pageIndex - 1) * pageParam.pageSize}, ${pageParam.pageSize}
+        </if>
+    </select>
+    <!-- 根据编码查询 -->
+    <select id="findByCode" resultMap="BaseResultMap">
+        select *
+        from data_dict
+        where is_delete = 0 and code = #{code}
+    </select>
+    <!-- 根据父编码和值查询 -->
+    <select id="findByParentCodeAndValue" resultMap="BaseResultMap">
+        select *
+        from data_dict
+        where is_delete = 0 and parent_code = #{parentCode} and `value` = #{value}
+    </select>
+    <!-- 根据父编码查询 -->
+    <select id="listByParentCode" resultMap="BaseResultMap">
+        select *
+        from data_dict
+        where is_delete = 0 and parent_code = #{parentCode}
+    </select>
+</mapper>
