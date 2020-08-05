@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/idlewow-game" />
+    <file type="web" url="file://$PROJECT_DIR$/idleCultivate-game" />
+    <file type="web" url="file://$PROJECT_DIR$/idleCultivate-rms" />
     <file type="web" url="file://$PROJECT_DIR$/idlewow-hessian" />
-    <file type="web" url="file://$PROJECT_DIR$/idlewow-rms" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

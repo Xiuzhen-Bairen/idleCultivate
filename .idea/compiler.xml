@@ -6,22 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="idlewow-game" />
-        <module name="idlewow-util" />
-        <module name="idlewow-core" />
-        <module name="idlewow-facade" />
-        <module name="idlewow-hessian" />
-        <module name="idlewow-rms" />
+        <module name="idleCultivate-game" />
+        <module name="idleCultivate-util" />
+        <module name="idleCultivate-core" />
+        <module name="idleCultivate-rms" />
+        <module name="idleCultivate-facade" />
+        <module name="idleCultivate-hessian" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="idlewow" target="1.8" />
-      <module name="idlewow-core" target="1.8" />
-      <module name="idlewow-facade" target="1.8" />
-      <module name="idlewow-game" target="1.8" />
-      <module name="idlewow-hessian" target="1.8" />
-      <module name="idlewow-rms" target="1.8" />
-      <module name="idlewow-util" target="1.8" />
+      <module name="idleCultivate" target="1.8" />
+      <module name="idleCultivate-core" target="1.8" />
+      <module name="idleCultivate-facade" target="1.8" />
+      <module name="idleCultivate-game" target="1.8" />
+      <module name="idleCultivate-hessian" target="1.8" />
+      <module name="idleCultivate-rms" target="1.8" />
+      <module name="idleCultivate-util" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
