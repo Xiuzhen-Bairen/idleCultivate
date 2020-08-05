@@ -28,9 +28,11 @@ public class LevelExpController extends ExcelController<LevelExp, LevelExpQueryP
             XSSFRow row = (XSSFRow) sheet.getRow(rowNum);
             Integer level = Integer.valueOf(PoiUtil.getCellValue(row.getCell(1)));
             Integer exp = Integer.valueOf(PoiUtil.getCellValue(row.getCell(2)));
+            Integer exp_speed = Integer.valueOf(PoiUtil.getCellValue(row.getCell(3)));
             LevelExp levelExp = new LevelExp();
             levelExp.setLevel(level);
             levelExp.setExp(exp);
+            levelExp.setExp_speed(exp_speed);
             levelExp.setCreateUser(createUser);
             levelExpList.add(levelExp);
         }

@@ -32,7 +32,6 @@ public class CharacterManager {
         Character character = new Character();
         character.setUserId(userId);
         character.setName(name);
-        character.setFaction(faction);
         character.setRace(race);
         character.setJob(job);
         character.setCreateUser("idleCultivate");

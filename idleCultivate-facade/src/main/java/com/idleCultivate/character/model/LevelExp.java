@@ -11,8 +11,9 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class LevelExp extends BaseModel implements Serializable {
-    @Range(min = 1, max = 59, field = "等级")
+    @Range(min = 1, max = 181, field = "等级")
     private Integer level;
     @Positive(field = "经验")
     private Integer exp;
+    private Integer exp_speed;
 }

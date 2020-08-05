@@ -33,6 +33,13 @@
                 </div>
             </div>
             <div class="layui-form-item">
+                <label class="layui-form-label">经验获取速度</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="exp_speed" required lay-verify="required" autocomplete="off"
+                           class="layui-input" onkeyup="value = this.value.replace(/[^\d]/g, '');"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
                 <label class="layui-form-label"></label>
                 <div class="layui-input-inline">
                     <button class="layui-btn" lay-filter="add" lay-submit type="button">添加</button>

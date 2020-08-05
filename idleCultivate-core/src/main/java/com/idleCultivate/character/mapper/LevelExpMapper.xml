@@ -5,6 +5,7 @@
         <result column="id" property="id"/>
         <result column="level" property="level"/>
         <result column="exp" property="exp"/>
+        <result column="exp_speed" property="exp_speed"/>
         <result column="create_user" property="createUser"/>
         <result column="update_user" property="updateUser"/>
         <result column="create_time" property="createTime"/>
@@ -14,21 +15,22 @@
     </resultMap>
     <!-- 添加 -->
     <insert id="insert">
-        insert into character_level_exp (level, exp, create_user)
-        values (#{level}, #{exp}, #{createUser})
+        insert into character_level_exp (level, exp, exp_speed, create_user)
+        values (#{level}, #{exp}, #{exp_speed}, #{createUser})
     </insert>
     <!-- 批量添加 -->
     <insert id="batchInsert">
-        insert into character_level_exp (level, exp, create_user)
+        insert into character_level_exp (level, exp, exp_speed, create_user)
         values
         <foreach collection="list" item="item" separator=",">
-            (#{item.level}, #{item.exp}, #{item.createUser})
+            (#{item.level}, #{item.exp}, #{item.exp_speed}, #{item.createUser})
         </foreach>
     </insert>
     <!-- 修改 -->
     <update id="update">
         update character_level_exp
         set exp = #{exp},
+        exp_speed = #{exp_speed},
         update_user = #{updateUser},
         version = version + 1
         where id = #{id} and is_delete = 0

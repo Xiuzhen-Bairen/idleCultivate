@@ -22,7 +22,7 @@ public class CacheConfig extends CachingConfigurerSupport {
         jedisPoolConfig.setMaxIdle(50);
         jedisPoolConfig.setMinIdle(20);
         jedisPoolConfig.setMaxWaitMillis(5000);
-        jedisPoolConfig.setTestOnBorrow(true);
+        jedisPoolConfig.setTestOnBorrow(false);
         jedisPoolConfig.setTestOnReturn(false);
         return jedisPoolConfig;
     }

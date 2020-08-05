@@ -3,6 +3,7 @@ layui.use(['table', 'form', 'upload'], function () {
         {field: 'id', width: 50, title: 'id'}
         , {field: 'level', title: '等级'}
         , {field: 'exp', title: '经验'}
+        , {field: 'exp_speed', title: '经验获取速度'}
         , {
             fixed: 'right', width: 160, align: 'center', title: '操作', templet: function (d) {
                 return '<button class="layui-btn layui-btn-xs"  onclick="xadmin.open(\'编辑配置\',\'edit/' + d.id + '\', 500, 500)" type="button"><i class="layui-icon">&#xe642;</i>编辑</button>' +

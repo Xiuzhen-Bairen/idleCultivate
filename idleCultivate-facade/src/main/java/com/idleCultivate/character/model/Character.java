@@ -12,13 +12,27 @@ import java.util.Objects;
 @Data
 public class Character extends BaseModel {
     private String userId;
+    private String zone;
     private String name;
-    private String faction;
     private String race;
     private String job;
     private Integer level;
+    private Integer body_level;
+    private Integer att;
+    private Integer def;
+    private Integer hp;
+    private Integer crit;
+    private Integer dodge;
     private Integer experience;
+    private Integer experience_speed;
     private Integer gold;
+    private Integer prestige;
+    private Integer money;
+    private Integer max_stage;
+    private Integer current_stage;
+    private Integer sect;
+    private Integer position;
+    private Integer coordinate;
     private Integer isHide;
     private String extraInfo;
 
