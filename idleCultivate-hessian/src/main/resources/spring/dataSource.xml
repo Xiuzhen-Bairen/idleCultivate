@@ -56,7 +56,7 @@
         <!-- 指定sql会话工厂，在上面配置过的 -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
         <!-- 指定基础包，即自动扫描com.lyosaki.dao这个包以及它的子包下的所有映射接口类 -->
-        <property name="basePackage" value="com.idlewow.**.mapper"></property>
+        <property name="basePackage" value="com.idleCultivate.**.mapper"></property>
     </bean>
 
     <!-- 开启事务控制的注解支持 -->

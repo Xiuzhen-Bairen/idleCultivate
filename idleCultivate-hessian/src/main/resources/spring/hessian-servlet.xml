@@ -12,34 +12,34 @@
 
     <bean name="/UserService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="userService"/>
-        <property name="serviceInterface" value="com.idlewow.user.service.UserService"/>
+        <property name="serviceInterface" value="com.idleCultivate.user.service.UserService"/>
     </bean>
     <bean name="/CharacterService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="characterService"/>
-        <property name="serviceInterface" value="com.idlewow.character.service.CharacterService"/>
+        <property name="serviceInterface" value="com.idleCultivate.character.service.CharacterService"/>
     </bean>
     <bean name="/WowMapService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="wowMapService"/>
-        <property name="serviceInterface" value="com.idlewow.map.service.WowMapService"/>
+        <property name="serviceInterface" value="com.idleCultivate.map.service.WowMapService"/>
     </bean>
     <bean name="/MapMobService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="mapMobService"/>
-        <property name="serviceInterface" value="com.idlewow.mob.service.MapMobService"/>
+        <property name="serviceInterface" value="com.idleCultivate.mob.service.MapMobService"/>
     </bean>
     <bean name="/LevelPropService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="levelPropService"/>
-        <property name="serviceInterface" value="com.idlewow.character.service.LevelPropService"/>
+        <property name="serviceInterface" value="com.idleCultivate.character.service.LevelPropService"/>
     </bean>
     <bean name="/LevelExpService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="levelExpService"/>
-        <property name="serviceInterface" value="com.idlewow.character.service.LevelExpService"/>
+        <property name="serviceInterface" value="com.idleCultivate.character.service.LevelExpService"/>
     </bean>
     <bean name="/MapCoordService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="mapCoordService"/>
-        <property name="serviceInterface" value="com.idlewow.map.service.MapCoordService"/>
+        <property name="serviceInterface" value="com.idleCultivate.map.service.MapCoordService"/>
     </bean>
     <bean name="/DataDictService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="dataDictService" />
-        <property name="serviceInterface" value="com.idlewow.datadict.service.DataDictService" />
+        <property name="serviceInterface" value="com.idleCultivate.datadict.service.DataDictService" />
     </bean>
 </beans>

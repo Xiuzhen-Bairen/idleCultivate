@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="idleCultivate-game:war">
+    <output-path>$PROJECT_DIR$/idleCultivate-game/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>idleCultivate-game</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="idleCultivate-game-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="idleCultivate-game:war exploded" />
+    </root>
+  </artifact>
+</component>

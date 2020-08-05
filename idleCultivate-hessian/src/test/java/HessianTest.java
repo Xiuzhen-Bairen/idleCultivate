@@ -1,6 +1,6 @@
 import com.caucho.hessian.client.HessianProxyFactory;
-import com.idlewow.common.model.CommonResult;
-import com.idlewow.user.service.UserService;
+import com.idleCultivate.common.model.CommonResult;
+import com.idleCultivate.user.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

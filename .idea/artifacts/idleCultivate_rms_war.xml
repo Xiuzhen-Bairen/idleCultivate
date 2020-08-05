@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="idleCultivate-rms:war">
+    <output-path>$PROJECT_DIR$/idleCultivate-rms/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>idleCultivate-rms</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="idleCultivate-rms-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="idleCultivate-rms:war exploded" />
+    </root>
+  </artifact>
+</component>

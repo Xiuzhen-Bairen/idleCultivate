@@ -25,12 +25,12 @@
     </bean>
 
     <!--redis -->
-    <bean id="redisCache" class="com.idlewow.util.redis.RedisCache">
+    <bean id="redisCache" class="com.idleCultivate.util.redis.RedisCache">
         <constructor-arg name="pool" ref="jedisPool"/>
-        <constructor-arg name="keyPrefix" value="idlewow"/>
+        <constructor-arg name="keyPrefix" value="idleCultivate"/>
     </bean>
 
-    <bean id="methodCacheInterceptor" class="com.idlewow.util.redis.interceptor.MethodCacheInterceptor">
+    <bean id="methodCacheInterceptor" class="com.idleCultivate.util.redis.interceptor.MethodCacheInterceptor">
         <constructor-arg name="redisCache" ref="redisCache"/>
         <constructor-arg name="executor" ref="taskExecutor"/>
     </bean>

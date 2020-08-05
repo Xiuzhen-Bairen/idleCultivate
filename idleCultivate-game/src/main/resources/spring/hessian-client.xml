@@ -11,41 +11,41 @@
     <!-- 用户信息 -->
     <bean id="userService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/UserService"/>
-        <property name="serviceInterface" value="com.idlewow.user.service.UserService"/>
+        <property name="serviceInterface" value="com.idleCultivate.user.service.UserService"/>
     </bean>
     <!-- 人物角色 -->
     <bean id="characterService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/CharacterService"/>
-        <property name="serviceInterface" value="com.idlewow.character.service.CharacterService"/>
+        <property name="serviceInterface" value="com.idleCultivate.character.service.CharacterService"/>
     </bean>
     <!-- 世界地图 -->
     <bean id="wowMapService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/WowMapService"/>
-        <property name="serviceInterface" value="com.idlewow.map.service.WowMapService"/>
+        <property name="serviceInterface" value="com.idleCultivate.map.service.WowMapService"/>
     </bean>
     <!-- 地图怪物信息 -->
     <bean id="mapMobService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/MapMobService"/>
-        <property name="serviceInterface" value="com.idlewow.mob.service.MapMobService"/>
+        <property name="serviceInterface" value="com.idleCultivate.mob.service.MapMobService"/>
     </bean>
     <!-- 人物等级属性 -->
     <bean id="levelPropService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/LevelPropService"/>
-        <property name="serviceInterface" value="com.idlewow.character.service.LevelPropService"/>
+        <property name="serviceInterface" value="com.idleCultivate.character.service.LevelPropService"/>
     </bean>
     <!-- 人物升级经验 -->
     <bean id="levelExpService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/LevelExpService"/>
-        <property name="serviceInterface" value="com.idlewow.character.service.LevelExpService"/>
+        <property name="serviceInterface" value="com.idleCultivate.character.service.LevelExpService"/>
     </bean>
     <!-- 地图坐标 -->
     <bean id="mapCoordService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/MapCoordService"/>
-        <property name="serviceInterface" value="com.idlewow.map.service.MapCoordService"/>
+        <property name="serviceInterface" value="com.idleCultivate.map.service.MapCoordService"/>
     </bean>
     <!-- 数据字典服务 -->
     <bean id="dataDictService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/DataDictService" />
-        <property name="serviceInterface" value="com.idlewow.datadict.service.DataDictService" />
+        <property name="serviceInterface" value="com.idleCultivate.datadict.service.DataDictService" />
     </bean>
 </beans>

@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>idlewow</groupId>
-    <artifactId>idlewow</artifactId>
+    <groupId>idleCultivate</groupId>
+    <artifactId>idleCultivate</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>idlewow-core</module>
-        <module>idlewow-hessian</module>
-        <module>idlewow-facade</module>
-        <module>idlewow-util</module>
-        <module>idlewow-game</module>
-        <module>idlewow-rms</module>
+        <module>idleCultivate-core</module>
+        <module>idleCultivate-hessian</module>
+        <module>idleCultivate-facade</module>
+        <module>idleCultivate-util</module>
+        <module>idleCultivate-game</module>
+        <module>idleCultivate-rms</module>
     </modules>
 
     <dependencies>

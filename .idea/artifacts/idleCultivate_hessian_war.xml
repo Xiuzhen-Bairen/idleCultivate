@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="idleCultivate-hessian:war">
+    <output-path>$PROJECT_DIR$/idleCultivate-hessian/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>idleCultivate-hessian</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="idleCultivate-hessian-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="idleCultivate-hessian:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="OFF" monitorInterval="1800">
     <properties>
-        <property name="LOG_HOME">/Users/xin.zhang/Downloads/logs/idlewow-hessian</property>
+        <property name="LOG_HOME">/Users/xin.zhang/Downloads/logs/idleCultivate-hessian</property>
     </properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
@@ -46,7 +46,7 @@
         <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
         <logger name="org.springframework" level="INFO"></logger>
         <logger name="org.mybatis" level="INFO"></logger>
-        <logger name="com.lyosaki.idlewow.**.mapper" level="DEBUG"></logger>
+        <logger name="com.lyosaki.idleCultivate.**.mapper" level="DEBUG"></logger>
         <Root level="DEBUG">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="info"/>

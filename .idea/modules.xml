@@ -6,9 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/idleCultivate-core/idleCultivate-core.iml" filepath="$PROJECT_DIR$/idleCultivate-core/idleCultivate-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/idleCultivate-facade/idleCultivate-facade.iml" filepath="$PROJECT_DIR$/idleCultivate-facade/idleCultivate-facade.iml" />
       <module fileurl="file://$PROJECT_DIR$/idleCultivate-game/idleCultivate-game.iml" filepath="$PROJECT_DIR$/idleCultivate-game/idleCultivate-game.iml" />
-      <module fileurl="file://$PROJECT_DIR$/idlewow-hessian/idleCultivate-hessian.iml" filepath="$PROJECT_DIR$/idlewow-hessian/idleCultivate-hessian.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idleCultivate-hessian/idleCultivate-hessian.iml" filepath="$PROJECT_DIR$/idleCultivate-hessian/idleCultivate-hessian.iml" />
       <module fileurl="file://$PROJECT_DIR$/idleCultivate-rms/idleCultivate-rms.iml" filepath="$PROJECT_DIR$/idleCultivate-rms/idleCultivate-rms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/idlewow-util/idleCultivate-util.iml" filepath="$PROJECT_DIR$/idlewow-util/idleCultivate-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/idleCultivate-util/idleCultivate-util.iml" filepath="$PROJECT_DIR$/idleCultivate-util/idleCultivate-util.iml" />
     </modules>
   </component>
 </project>
