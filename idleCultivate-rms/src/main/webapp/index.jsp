@@ -68,9 +68,24 @@
                             <cite>地图配置</cite></a>
                     </li>
                     <li>
-                        <a onclick="xadmin.add_tab('怪物','/manage/map_mob/list')">
+                        <a onclick="xadmin.add_tab('怪物','/manage/monster/list')">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>地图怪物配置</cite></a>
+                            <cite>怪物配置</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('门派','/manage/sect/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>门派配置</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('功法','/manage/skill/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>功法配置</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('物品','/manage/item/list')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>物品配置</cite></a>
                     </li>
                     <li>
                         <a onclick="xadmin.add_tab('等级属性','/manage/level_prop/list')">

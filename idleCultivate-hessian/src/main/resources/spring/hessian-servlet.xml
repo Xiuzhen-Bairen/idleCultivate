@@ -34,6 +34,10 @@
         <property name="service" ref="levelExpService"/>
         <property name="serviceInterface" value="com.idleCultivate.character.service.LevelExpService"/>
     </bean>
+    <bean name="/ItemService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="itemService"/>
+        <property name="serviceInterface" value="com.idleCultivate.character.service.ItemService"/>
+    </bean>
     <bean name="/MapCoordService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="mapCoordService"/>
         <property name="serviceInterface" value="com.idleCultivate.map.service.MapCoordService"/>

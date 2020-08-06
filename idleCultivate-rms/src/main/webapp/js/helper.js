@@ -209,8 +209,8 @@ DataDict.prototype = {
     job: function (value) {
         return _cache.configmap[DataType.Job][value];
     },
-    faction: function (value) {
-        return _cache.configmap[DataType.Faction][value];
+    level: function (value) {
+        return _cache.configmap[DataType.level][value];
     },
     mobClass: function (value) {
         return _cache.configmap[DataType.MobClass][value];

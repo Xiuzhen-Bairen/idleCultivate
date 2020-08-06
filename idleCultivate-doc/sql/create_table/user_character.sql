@@ -1,5 +1,5 @@
 CREATE TABLE `user_character` (
-  `character_id` int(20) NOT NULL AUTO_INCREMENT COMMENT '角色id',
+  `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '角色id',
   `zone` int(11) NOT NULL DEFAULT 0 COMMENT '区服',
   `user_id` int(20) NOT NULL DEFAULT 0 COMMENT '用户id',
   `name` varchar(20) NOT NULL DEFAULT '' COMMENT '名字',
@@ -30,7 +30,7 @@ CREATE TABLE `user_character` (
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   `is_delete` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除 0-否 1-是',
   `version` int(11) NOT NULL DEFAULT '0' COMMENT '版本号',
-  PRIMARY KEY (`character_id`),
+  PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES user_account(id),
-  INDEX `idx_character_id` (`character_id`)
+  INDEX `idx_id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户角色表';

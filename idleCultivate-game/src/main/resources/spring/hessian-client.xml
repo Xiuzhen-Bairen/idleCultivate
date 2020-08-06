@@ -38,6 +38,11 @@
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/LevelExpService"/>
         <property name="serviceInterface" value="com.idleCultivate.character.service.LevelExpService"/>
     </bean>
+    <!-- 物品 -->
+    <bean id="itemService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="#{hessian['server.url']}/remoting/ItemService"/>
+        <property name="serviceInterface" value="com.idleCultivate.character.service.ItemService"/>
+    </bean>
     <!-- 地图坐标 -->
     <bean id="mapCoordService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/MapCoordService"/>

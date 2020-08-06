@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idleCultivate.character.mapper.ItemMapper">
+    <resultMap id="BaseResultMap" type="com.idleCultivate.character.model.Item">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="type" property="type"/>
+        <result column="level" property="level"/>
+        <result column="value" property="value"/>
+        <result column="description" property="description"/>
+        <result column="pile" property="pile"/>
+        <result column="max_count" property="max_count"/>
+        <result column="sell" property="sell"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <!-- 添加 -->
+    <insert id="insert">
+        insert into item (name, type, level, value, description, pile, max_count, sell, create_user)
+        values (#{name}, #{type}, #{level}, #{value}, #{description}, #{pile}, #{max_count}, #{sell}, #{createUser})
+    </insert>
+    <!-- 批量添加 -->
+    <insert id="batchInsert">
+        insert into item (name, type, level, value, description, pile, max_count, sell, create_user)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.name}, #{item.type}, #{item.level}, #{item.value}, #{item.description}, #{item.pile}, #{item.max_count}, #{item.sell}, #{item.createUser})
+        </foreach>
+    </insert>
+    <!-- 修改 -->
+    <update id="update">
+        update item
+        set name = #{name},
+        type = #{type},
+        level = #{level},
+        value = #{value},
+        description = #{description},
+        pile = #{pile},
+        max_count = #{max_count},
+        sell = #{sell},
+        update_user = #{updateUser},
+        version = version + 1
+        where id = #{id} and is_delete = 0
+    </update>
+    <!-- 删除 -->
+    <update id="delete" parameterType="String">
+        update item
+        set is_delete = 1
+        where id = #{id}
+    </update>
+    <!-- id查询 -->
+    <select id="find" resultMap="BaseResultMap">
+        select *
+        from item
+        where id = #{id} and is_delete = 0
+    </select>
+    <!-- 列表查询总数 -->
+    <select id="count" resultType="int">
+        select count(1)
+        from item
+        <where>
+            is_delete = 0
+            <if test="level != null">
+                and level = #{level}
+            </if>
+        </where>
+    </select>
+    <!-- 列表查询 -->
+    <select id="list" resultMap="BaseResultMap">
+        select *
+        from item
+        <where>
+            is_delete = 0
+            <if test="level != null">
+                and level = #{level}
+            </if>
+        </where>
+        order by level asc
+        <if test="pageParam != null">
+            limit ${(pageParam.pageIndex - 1) * pageParam.pageSize}, ${pageParam.pageSize}
+        </if>
+    </select>
+</mapper>
