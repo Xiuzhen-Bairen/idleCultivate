@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idleCultivate.skill.mapper.SkillMapper">
+    <resultMap id="BaseResultMap" type="com.idleCultivate.skill.model.Skill">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="type" property="type"/>
+        <result column="level" property="level"/>
+        <result column="value" property="value"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <!-- 添加 -->
+    <insert id="insert">
+        insert into skill (name, type, level, value, create_user)
+        values (#{name}, #{type}, #{level}, #{value}, #{createUser})
+    </insert>
+    <!-- 批量添加 -->
+    <insert id="batchInsert">
+        insert into skill (name, type, level, value, create_user)
+        values
+        <foreach collection="list" item="skill" separator=",">
+            (#{item.name}, #{item.type}, #{item.level}, #{item.value}, #{item.createUser})
+        </foreach>
+    </insert>
+    <!-- 修改 -->
+    <update id="update">
+        update skill
+        set name = #{name},
+        type = #{type},
+        level = #{level},
+        value = #{value},
+        update_user = #{updateUser},
+        version = version + 1
+        where id = #{id} and is_delete = 0
+    </update>
+    <!-- 删除 -->
+    <update id="delete" parameterType="String">
+        update skill
+        set is_delete = 1
+        where id = #{id}
+    </update>
+    <!-- id查询 -->
+    <select id="find" resultMap="BaseResultMap">
+        select *
+        from skill
+        where id = #{id} and is_delete = 0
+    </select>
+    <!-- 列表查询总数 -->
+    <select id="count" resultType="int">
+        select count(1)
+        from skill
+        <where>
+            is_delete = 0
+            <if test="level != null">
+                and level = #{level}
+            </if>
+        </where>
+    </select>
+    <!-- 列表查询 -->
+    <select id="list" resultMap="BaseResultMap">
+        select *
+        from skill
+        <where>
+            is_delete = 0
+            <if test="level != null">
+                and level = #{level}
+            </if>
+        </where>
+        order by level asc
+        <if test="pageParam != null">
+            limit ${(pageParam.pageIndex - 1) * pageParam.pageSize}, ${pageParam.pageSize}
+        </if>
+    </select>
+</mapper>

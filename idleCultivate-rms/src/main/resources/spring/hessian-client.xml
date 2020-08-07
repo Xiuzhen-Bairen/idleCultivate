@@ -37,6 +37,18 @@
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/ItemService"/>
         <property name="serviceInterface" value="com.idleCultivate.character.service.ItemService"/>
     </bean>
+    <bean id="skillService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="#{hessian['server.url']}/remoting/SkillService"/>
+        <property name="serviceInterface" value="com.idleCultivate.skill.service.SkillService"/>
+    </bean>
+    <bean id="sectService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="#{hessian['server.url']}/remoting/SectService"/>
+        <property name="serviceInterface" value="com.idleCultivate.sect.service.SectService"/>
+    </bean>
+    <bean id="monsterService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="#{hessian['server.url']}/remoting/MonsterService"/>
+        <property name="serviceInterface" value="com.idleCultivate.monster.service.MonsterService"/>
+    </bean>
     <!--<bean id="mapCoordService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">-->
         <!--<property name="serviceUrl" value="#{hessian['server.url']}/remoting/MapCoordService"/>-->
         <!--<property name="serviceInterface" value="com.idleCultivate.map.service.MapCoordService"/>-->

@@ -43,6 +43,21 @@
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/ItemService"/>
         <property name="serviceInterface" value="com.idleCultivate.character.service.ItemService"/>
     </bean>
+    <!-- 功法 -->
+    <bean id="skillService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="#{hessian['server.url']}/remoting/SkillService"/>
+        <property name="serviceInterface" value="com.idleCultivate.skill.service.SkillService"/>
+    </bean>
+    <!-- 门派 -->
+    <bean id="sectService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="#{hessian['server.url']}/remoting/SectService"/>
+        <property name="serviceInterface" value="com.idleCultivate.sect.service.SectService"/>
+    </bean>
+    <!-- 怪物 -->
+    <bean id="monsterService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="#{hessian['server.url']}/remoting/MonsterService"/>
+        <property name="serviceInterface" value="com.idleCultivate.monster.service.MonsterService"/>
+    </bean>
     <!-- 地图坐标 -->
     <bean id="mapCoordService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
         <property name="serviceUrl" value="#{hessian['server.url']}/remoting/MapCoordService"/>

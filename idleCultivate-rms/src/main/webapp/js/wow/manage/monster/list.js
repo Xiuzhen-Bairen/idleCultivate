@@ -1,27 +1,32 @@
 layui.use(['upload', 'table', 'form'], function () {
     var cols = [[
         {field: 'id', width: 50, title: 'id'}
+        , {field: 'map_id', title: '地图Id'}
         , {field: 'name', title: '怪物名称'}
         , {field: 'mapName', title: '地图名称'}
         , {
-            field: 'faction', title: '阵营', templet: function (row) {
+            field: 'faction', title: '种族', templet: function (row) {
                 return dataDict.faction(row.faction);
             }
         }
         , {
-            field: 'mobClass', title: '怪物种类', templet: function (row) {
+            field: 'mobClass', title: '职业', templet: function (row) {
                 return dataDict.mobClass(row.mobClass);
             }
         }
+        , {field: 'level', title: '等级'}
+        , {field: 'hp', title: '生命'}
+        , {field: 'att', title: '攻击'}
+        , {field: 'def', title: '防御'}
+        , {field: 'crit', title: '暴击率'}
+        , {field: 'dodge', title: '闪避率'}
+        , {field: 'coordinate', title: '所在坐标'}
         , {
-            field: 'mobType', title: '怪物类型', templet: function (row) {
-                return dataDict.mobType(row.mobType);
+            field: 'is_hide', title: '隐身', templet: function (row) {
+                return row.is_hide;
             }
         }
-        , {field: 'level', title: '等级'}
-        , {field: 'hp', title: '生命值'}
-        , {field: 'damage', title: '伤害'}
-        , {field: 'armour', title: '护甲'}
+        , {field: 'extra_info', title: '扩展信息'}
         , {
             title: '操作', width: 150, templet: function (row) {
                 return '<button class="layui-btn layui-btn-xs"  onclick="xadmin.open(\'编辑怪物\',\'edit/' + row.id + '\', 500, 500)" type="button"><i class="layui-icon">&#xe642;</i>编辑</button>' +
@@ -30,23 +35,19 @@ layui.use(['upload', 'table', 'form'], function () {
         }
     ]];
 
-    crud.list(cols, '/manage/map_mob/list');
-    crud.upload('/manage/map_mob/importExcel', 'xls|xlsx');
+    crud.list(cols, '/manage/monster/list');
+    crud.upload('/manage/monster/importExcel', 'xls|xlsx');
 });
 
 function search() {
     var data = {
         name: $('input[name="name"]').val(),
-        levelStart: $('input[name="levelStart"]').val(),
-        levelEnd: $('input[name="levelEnd"]').val(),
-        faction: $('select[name="faction"]').val(),
-        mobClass: $('select[name="mobClass"]').val(),
-        mobType: $('select[name="mobType"]').val()
+        level: $('input[name="level"]').val(),
     };
 
     crud.search(data);
 }
 
 function remove(obj, id) {
-    crud.remove(obj, '/manage/map_mob/delete/' + id);
+    crud.remove(obj, '/manage/monster/delete/' + id);
 }

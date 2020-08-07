@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idleCultivate.monster.mapper.MonsterMapper">
+    <resultMap id="BaseResultMap" type="com.idleCultivate.monster.model.Monster">
+        <result column="id" property="id"/>
+        <result column="map_id" property="map_id"/>
+        <result column="map_name" property="map_name"/>
+        <result column="name" property="name"/>
+        <result column="race" property="race"/>
+        <result column="job" property="job"/>
+        <result column="level" property="level"/>
+        <result column="att" property="att"/>
+        <result column="def" property="def"/>
+        <result column="hp" property="hp"/>
+        <result column="crit" property="crit"/>
+        <result column="dodge" property="dodge"/>
+        <result column="coordinate" property="coordinate"/>
+        <result column="is_hide" property="is_hide"/>
+        <result column="extra_info" property="extra_info"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <!-- 添加 -->
+    <insert id="insert">
+        insert into monster (name, type, level, alchemy, refiner, create_user)
+        values (#{name}, #{type}, #{level}, #{alchemy}, #{refiner}, #{createUser})
+    </insert>
+    <!-- 批量添加 -->
+    <insert id="batchInsert">
+        insert into monster (name, type, level, alchemy, refiner, create_user)
+        values
+        <foreach collection="list" item="monster" separator=",">
+            (#{item.name}, #{item.type}, #{item.level}, #{item.alchemy}, #{item.refiner}, #{item.createUser})
+        </foreach>
+    </insert>
+    <!-- 修改 -->
+    <update id="update">
+        update monster
+        set name = #{name},
+        type = #{type},
+        level = #{level},
+        alchemy = #{alchemy},
+        refiner = #{refiner},
+        update_user = #{updateUser},
+        version = version + 1
+        where id = #{id} and is_delete = 0
+    </update>
+    <!-- 删除 -->
+    <update id="delete" parameterType="String">
+        update monster
+        set is_delete = 1
+        where id = #{id}
+    </update>
+    <!-- id查询 -->
+    <select id="find" resultMap="BaseResultMap">
+        select *
+        from monster
+        where id = #{id} and is_delete = 0
+    </select>
+    <!-- 列表查询总数 -->
+    <select id="count" resultType="int">
+        select count(1)
+        from monster
+        <where>
+            is_delete = 0
+            <if test="level != null">
+                and level = #{level}
+            </if>
+        </where>
+    </select>
+    <!-- 列表查询 -->
+    <select id="list" resultMap="BaseResultMap">
+        select *
+        from monster
+        <where>
+            is_delete = 0
+            <if test="level != null">
+                and level = #{level}
+            </if>
+        </where>
+        order by level asc
+        <if test="pageParam != null">
+            limit ${(pageParam.pageIndex - 1) * pageParam.pageSize}, ${pageParam.pageSize}
+        </if>
+    </select>
+</mapper>

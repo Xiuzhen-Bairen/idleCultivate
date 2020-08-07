@@ -38,6 +38,18 @@
         <property name="service" ref="itemService"/>
         <property name="serviceInterface" value="com.idleCultivate.character.service.ItemService"/>
     </bean>
+    <bean name="/SkillService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="skillService"/>
+        <property name="serviceInterface" value="com.idleCultivate.skill.service.SkillService"/>
+    </bean>
+    <bean name="/SectService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="sectService"/>
+        <property name="serviceInterface" value="com.idleCultivate.sect.service.SectService"/>
+    </bean>
+    <bean name="/MonsterService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="monsterService"/>
+        <property name="serviceInterface" value="com.idleCultivate.monster.service.MonsterService"/>
+    </bean>
     <bean name="/MapCoordService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="mapCoordService"/>
         <property name="serviceInterface" value="com.idleCultivate.map.service.MapCoordService"/>

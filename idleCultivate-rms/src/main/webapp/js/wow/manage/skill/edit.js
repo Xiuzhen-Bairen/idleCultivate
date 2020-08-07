@@ -3,6 +3,6 @@ layui.use(['form', 'layer'],
         var form = layui.form;
         form.render();
         form.verify({});
-        crud.edit('/manage/map_mob/edit/');
+        crud.edit('/manage/skill/edit/');
     });
 
