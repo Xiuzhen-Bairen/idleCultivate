@@ -20,16 +20,24 @@ public class SectController extends ExcelController<Sect, SectQueryParam> {
     protected List<Sect> loadExcelData(String excelPath) throws Exception {
         FileInputStream fileInputStream = new FileInputStream(excelPath);
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
-        Sheet sheet = workbook.getSheet("物品");
+        Sheet sheet = workbook.getSheet("门派");
         List<Sect> sectList = new ArrayList<>();
         // 处理当前页，循环读取每一行
         String createUser = this.currentUserName();
         for (int rowNum = 2; rowNum <= sheet.getLastRowNum(); rowNum++) {
             XSSFRow row = (XSSFRow) sheet.getRow(rowNum);
-            Integer name = Integer.valueOf(PoiUtil.getCellValue(row.getCell(1)));
-            Integer type = Integer.valueOf(PoiUtil.getCellValue(row.getCell(2)));
+            String name = PoiUtil.getCellValue(row.getCell(1));
+            String type = PoiUtil.getCellValue(row.getCell(2));
             Integer level = Integer.valueOf(PoiUtil.getCellValue(row.getCell(3)));
+            Boolean alchemy = Boolean.valueOf(PoiUtil.getCellValue(row.getCell(4)));
+            Boolean refiner = Boolean.valueOf(PoiUtil.getCellValue(row.getCell(4)));
             Sect sect = new Sect();
+            sect.setName(name);
+            sect.setType(type);
+            sect.setLevel(level);
+            sect.setAlchemy(alchemy);
+            sect.setRefiner(refiner);
+            sect.setCreateUser(createUser);
             sectList.add(sect);
         }
 

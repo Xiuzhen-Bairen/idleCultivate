@@ -26,10 +26,24 @@ public class ItemController extends ExcelController<Item, ItemQueryParam> {
         String createUser = this.currentUserName();
         for (int rowNum = 2; rowNum <= sheet.getLastRowNum(); rowNum++) {
             XSSFRow row = (XSSFRow) sheet.getRow(rowNum);
-            Integer name = Integer.valueOf(PoiUtil.getCellValue(row.getCell(1)));
-            Integer type = Integer.valueOf(PoiUtil.getCellValue(row.getCell(2)));
+            String name = PoiUtil.getCellValue(row.getCell(1));
+            String type = PoiUtil.getCellValue(row.getCell(2));
             Integer level = Integer.valueOf(PoiUtil.getCellValue(row.getCell(3)));
+            Integer value = Integer.valueOf(PoiUtil.getCellValue(row.getCell(4)));
+            String description = PoiUtil.getCellValue(row.getCell(5));
+            Boolean pile = Boolean.valueOf(PoiUtil.getCellValue(row.getCell(6)));
+            Integer max_count = Integer.valueOf(PoiUtil.getCellValue(row.getCell(7)));
+            Boolean sell = Boolean.valueOf(PoiUtil.getCellValue(row.getCell(8)));
             Item item = new Item();
+            item.setName(name);
+            item.setType(type);
+            item.setLevel(level);
+            item.setValue(value);
+            item.setDescription(description);
+            item.setPile(pile);
+            item.setMax_count(max_count);
+            item.setSell(sell);
+            item.setCreateUser(createUser);
             itemList.add(item);
         }
 

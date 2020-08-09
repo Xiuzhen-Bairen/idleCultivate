@@ -20,16 +20,22 @@ public class SkillController extends ExcelController<Skill, SkillQueryParam> {
     protected List<Skill> loadExcelData(String excelPath) throws Exception {
         FileInputStream fileInputStream = new FileInputStream(excelPath);
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
-        Sheet sheet = workbook.getSheet("物品");
+        Sheet sheet = workbook.getSheet("功法");
         List<Skill> skillList = new ArrayList<>();
         // 处理当前页，循环读取每一行
         String createUser = this.currentUserName();
         for (int rowNum = 2; rowNum <= sheet.getLastRowNum(); rowNum++) {
             XSSFRow row = (XSSFRow) sheet.getRow(rowNum);
-            Integer name = Integer.valueOf(PoiUtil.getCellValue(row.getCell(1)));
-            Integer type = Integer.valueOf(PoiUtil.getCellValue(row.getCell(2)));
+            String name = PoiUtil.getCellValue(row.getCell(1));
+            String type = PoiUtil.getCellValue(row.getCell(2));
             Integer level = Integer.valueOf(PoiUtil.getCellValue(row.getCell(3)));
+            Integer value = Integer.valueOf(PoiUtil.getCellValue(row.getCell(3)));
             Skill skill = new Skill();
+            skill.setName(name);
+            skill.setType(type);
+            skill.setLevel(level);
+            skill.setValue(value);
+            skill.setCreateUser(createUser);
             skillList.add(skill);
         }
 
