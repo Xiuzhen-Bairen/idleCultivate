@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.idleCultivate.rms.support.util.DataDictUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/authorize.jsp" %>
 <!DOCTYPE html>
@@ -26,10 +28,15 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">类型</label>
+                <label for="type" class="layui-form-label"> <span class="x-red">*</span>物品类型 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="type" name="type" required lay-verify="required"
-                           autocomplete="off" class="layui-input">
+                    <% request.setAttribute("itemTypeMap", DataDictUtil.itemType()); %>
+                    <select name="type" id="type">
+                        <option value="">请选择物品类型</option>
+                        <c:forEach items="${itemTypeMap}" var="item">
+                            <option value="${item.key}">${item.value}</option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
             <div class="layui-form-item">

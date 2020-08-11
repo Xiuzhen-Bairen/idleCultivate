@@ -43,27 +43,31 @@ public class DataDictUtil implements Serializable {
         }
     }
 
+    public static Map<String, String> zone() {
+        return ConfigMap.get(DataType.Zone.getCode());
+    }
+
     public static Map<String, String> occupy() {
         return ConfigMap.get(DataType.Occupy.getCode());
+    }
+
+    public static Map<String, String> race() {
+        return ConfigMap.get(DataType.Race.getCode());
     }
 
     public static Map<String, String> job() {
         return ConfigMap.get(DataType.Job.getCode());
     }
 
-    public static Map<String, String> faction() {
-        return ConfigMap.get(DataType.Faction.getCode());
+    public static Map<String, String> itemType() {
+        return ConfigMap.get(DataType.ItemType.getCode());
     }
 
-    public static Map<String, String> mobClass() {
-        return ConfigMap.get(DataType.MobClass.getCode());
+    public static Map<String, String> sectType() {
+        return ConfigMap.get(DataType.SectType.getCode());
     }
 
-    public static Map<String, String> mobType() {
-        return ConfigMap.get(DataType.MobType.getCode());
-    }
-
-    public static Map<String, String> race() {
-        return ConfigMap.get(DataType.Race.getCode());
+    public static Map<String, String> skillType() {
+        return ConfigMap.get(DataType.SkillType.getCode());
     }
 }

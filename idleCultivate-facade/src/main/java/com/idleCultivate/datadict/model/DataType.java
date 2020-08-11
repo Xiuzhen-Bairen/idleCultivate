@@ -3,12 +3,19 @@ package com.idleCultivate.datadict.model;
 import java.io.Serializable;
 
 public enum DataType implements Serializable {
-    Occupy("10100", "领土归属"),
-    Faction("10110", "阵营"),
-    Race("10200", "种族"),
-    Job("10250", "职业"),
-    MobType("10300", "怪物类型"),
-    MobClass("10310", "怪物种类");
+    //for character
+    Zone("10100", "区服"),
+    //for map
+    Occupy("10200", "地图归属"),
+    //for monster
+    Race("10300", "种族"),
+    Job("10310", "职业"),
+    //for item
+    ItemType("10400", "物品类型"),
+    //for sect
+    SectType("10500", "门派类型"),
+    //for skill
+    SkillType("10600", "功法类型");
 
     private String code;
     private String value;

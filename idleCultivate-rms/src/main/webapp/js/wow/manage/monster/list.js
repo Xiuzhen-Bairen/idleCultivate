@@ -4,16 +4,18 @@ layui.use(['upload', 'table', 'form'], function () {
         , {field: 'map_id', title: '地图Id'}
         , {field: 'name', title: '怪物名称'}
         , {field: 'mapName', title: '地图名称'}
-        , {
-            field: 'faction', title: '种族', templet: function (row) {
-                return dataDict.faction(row.faction);
-            }
-        }
-        , {
-            field: 'mobClass', title: '职业', templet: function (row) {
-                return dataDict.mobClass(row.mobClass);
-            }
-        }
+        , {field: 'race', title: '种族'}
+        , {field: 'job', title: '职业'}
+        // , {
+        //     field: 'race', title: '种族', templet: function (row) {
+        //         return dataDict.race(row.race);
+        //     }
+        // }
+        // , {
+        //     field: 'job', title: '职业', templet: function (row) {
+        //         return dataDict.job(row.job);
+        //     }
+        // }
         , {field: 'level', title: '等级'}
         , {field: 'hp', title: '生命'}
         , {field: 'att', title: '攻击'}

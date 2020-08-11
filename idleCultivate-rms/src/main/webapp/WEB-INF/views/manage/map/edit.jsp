@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <form:label path="occupy" class="layui-form-label"> <span class="x-red">*</span>领土归属 </form:label>
+                <form:label path="occupy" class="layui-form-label"> <span class="x-red">*</span>地图归属 </form:label>
                 <div class="layui-input-inline">
                     <form:select path="occupy" items="<%= DataDictUtil.occupy() %>"></form:select>
                 </div>

@@ -3,7 +3,7 @@ layui.use(['upload', 'table', 'form'], function () {
         {field: 'id', width: 50, title: 'id'}
         , {field: 'name', title: '地图名称'}
         , {
-            field: 'occupy', title: '领土归属', templet: function (d) {
+            field: 'occupy', title: '地图归属', templet: function (d) {
                 return enumUtil.occupyImage(d.occupy) + enumUtil.occupy(d.occupy);
             }
         }
@@ -22,9 +22,8 @@ function search() {
         name: $('input[name="name"]').val(),
         levelStart: $('input[name="levelStart"]').val(),
         levelEnd: $('input[name="levelEnd"]').val(),
-        faction: $('select[name="faction"]').val(),
-        mobClass: $('select[name="mobClass"]').val(),
-        mobType: $('select[name="mobType"]').val()
+        race: $('select[name="race"]').val(),
+        job: $('select[name="job"]').val(),
     };
 
     crud.search(data);

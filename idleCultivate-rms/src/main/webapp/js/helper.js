@@ -43,12 +43,13 @@ function loadCache() {
 
 /* 数据字典Key */
 var DataType = {
-    "Occupy": "10100",  // 领土归属
-    "Faction": "10110", // 阵营
-    "Race": "10200",    // 种族
-    "Job": "10250",     // 职业
-    "MobType": "10300", // 怪物类型
-    "MobClass": "10310" // 怪物种类
+    "Zone": "10100",  // 区服
+    "Occupy": "10200",  // 地图归属
+    "Race": "10300", // 种族
+    "Job": "10310",    // 职业
+    "ItemType": "10400",     // 物品类型
+    "SectType": "10500", // 门派类型
+    "SkillType": "10600" // 功法类型
 };
 
 var CRUD = function () {
@@ -203,8 +204,14 @@ CRUD.prototype = {
 };
 
 DataDict.prototype = {
+    zone: function (value) {
+        return _cache.configmap[DataType.Zone][value];
+    },
     occupy: function (value) {
         return _cache.configmap[DataType.Occupy][value];
+    },
+    race: function (value) {
+        return _cache.configmap[DataType.Race][value];
     },
     job: function (value) {
         return _cache.configmap[DataType.Job][value];
@@ -212,11 +219,14 @@ DataDict.prototype = {
     level: function (value) {
         return _cache.configmap[DataType.level][value];
     },
-    mobClass: function (value) {
-        return _cache.configmap[DataType.MobClass][value];
+    itemType: function (value) {
+        return _cache.configmap[DataType.ItemType][value];
     },
-    mobType: function (value) {
-        return _cache.configmap[DataType.MobType][value];
+    sectType: function (value) {
+        return _cache.configmap[DataType.SectType][value];
+    },
+    skillType: function (value) {
+        return _cache.configmap[DataType.SkillType][value];
     }
 };
 
