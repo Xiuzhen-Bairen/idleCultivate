@@ -1,3 +1,4 @@
+<%@ page import="com.idleCultivate.rms.support.util.DataDictUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/authorize.jsp" %>
 <!DOCTYPE html>
@@ -33,17 +34,27 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">种族</label>
+                <label for="race" class="layui-form-label"> <span class="x-red">*</span>种族 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="faction" name="faction" required lay-verify="required"
-                           autocomplete="off" class="layui-input">
+                    <% request.setAttribute("raceMap", DataDictUtil.race()); %>
+                    <select name="race" id="race">
+                        <option value="">请选择种族</option>
+                        <c:forEach items="${raceMap}" var="item">
+                            <option value="${item.key}">${item.value}</option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">职业</label>
+                <label for="job" class="layui-form-label"> <span class="x-red">*</span>职业 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="mobClass" name="mobClass" required lay-verify="required"
-                           autocomplete="off" class="layui-input">
+                    <% request.setAttribute("jobMap", DataDictUtil.job()); %>
+                    <select name="job" id="job">
+                        <option value="">请选择职业</option>
+                        <c:forEach items="${jobMap}" var="item">
+                            <option value="${item.key}">${item.value}</option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
             <div class="layui-form-item">

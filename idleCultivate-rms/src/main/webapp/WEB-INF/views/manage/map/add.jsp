@@ -29,11 +29,11 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <label for="occupy" class="layui-form-label"> <span class="x-red">*</span>领土归属 </label>
+                <label for="occupy" class="layui-form-label"> <span class="x-red">*</span>地图归属 </label>
                 <div class="layui-input-inline">
                     <% request.setAttribute("occupyMap", DataDictUtil.occupy()); %>
                     <select name="occupy" id="occupy">
-                        <option value="">请选择领土归属</option>
+                        <option value="">请选择地图归属</option>
                         <c:forEach items="${occupyMap}" var="item">
                             <option value="${item.key}">${item.value}</option>
                         </c:forEach>

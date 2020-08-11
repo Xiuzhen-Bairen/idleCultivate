@@ -5,12 +5,26 @@
         <result column="id" property="id"/>
         <result column="user_id" property="userId"/>
         <result column="name" property="name"/>
-        <result column="faction" property="faction"/>
+        <result column="zone" property="zone"/>
         <result column="race" property="race"/>
         <result column="job" property="job"/>
         <result column="level" property="level"/>
+        <result column="body_level" property="body_level"/>
+        <result column="att" property="att"/>
+        <result column="def" property="def"/>
+        <result column="hp" property="hp"/>
+        <result column="crit" property="crit"/>
+        <result column="dodge" property="dodge"/>
         <result column="experience" property="experience"/>
+        <result column="experience_speed" property="experience_speed"/>
         <result column="gold" property="gold"/>
+        <result column="prestige" property="prestige"/>
+        <result column="money" property="money"/>
+        <result column="max_stage" property="max_stage"/>
+        <result column="current_stage" property="current_stage"/>
+        <result column="sect" property="sect"/>
+        <result column="position" property="position"/>
+        <result column="coordinate" property="coordinate"/>
         <result column="is_hide" property="isHide"/>
         <result column="extra_info" property="extraInfo"/>
         <result column="create_user" property="createUser"/>

@@ -1,3 +1,4 @@
+<%@ page import="com.idleCultivate.rms.support.util.DataDictUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/authorize.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -26,10 +27,10 @@
                     <form:input path="name" lay-verify="required" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
-            <div class="layui-form-item">
-                <form:label path="type" class="layui-form-label"> <span class="x-red">*</span>类型</form:label>
+            <div class="layui-form-type">
+                <form:label path="type" class="layui-form-label"> <span class="x-red">*</span>技能类型 </form:label>
                 <div class="layui-input-inline">
-                    <form:input path="type" lay-verify="required" autocomplete="off" class="layui-input"/>
+                    <form:select path="type" items="<%=DataDictUtil.skillType() %>"></form:select>
                 </div>
             </div>
             <div class="layui-form-item">

@@ -1,3 +1,4 @@
+<%@ page import="com.idleCultivate.rms.support.util.DataDictUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/authorize.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -32,16 +33,16 @@
                     <form:input path="map_id" lay-verify="required" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
-            <div class="layui-form-item">
-                <form:label path="faction" class="layui-form-label"> <span class="x-red">*</span>种族</form:label>
+            <div class="layui-form-type">
+                <form:label path="race" class="layui-form-label"> <span class="x-red">*</span>种族 </form:label>
                 <div class="layui-input-inline">
-                    <form:input path="faction" lay-verify="required" autocomplete="off" class="layui-input"/>
+                    <form:select path="race" items="<%=DataDictUtil.race() %>"></form:select>
                 </div>
             </div>
-            <div class="layui-form-item">
-                <form:label path="mobClass" class="layui-form-label"> <span class="x-red">*</span>职业</form:label>
+            <div class="layui-form-type">
+                <form:label path="job" class="layui-form-label"> <span class="x-red">*</span>职业 </form:label>
                 <div class="layui-input-inline">
-                    <form:input path="mobClass" lay-verify="required" autocomplete="off" class="layui-input"/>
+                    <form:select path="job" items="<%=DataDictUtil.job() %>"></form:select>
                 </div>
             </div>
             <div class="layui-form-item">

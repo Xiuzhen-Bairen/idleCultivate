@@ -50,18 +50,18 @@ public class MapMobController extends ExcelController<MapMob, MapMobQueryParam> 
             mapMob.setMapId(wowMap.getId());
             mapMob.setMapName(mapName);
             mapMob.setName(mobName);
-            DataDict dataDict = dataDictService.findByParentCodeAndValue(DataType.Faction.getCode(), faction);
-            if (dataDict == null) {
-                System.out.println("null faction:" + faction);
-            }
-            mapMob.setFaction(dataDict.getCode());
-            dataDict = dataDictService.findByParentCodeAndValue(DataType.MobClass.getCode(), mobClass);
-            if (dataDict == null) {
-                System.out.println("null mobClass:" + mobClass);
-            }
-            mapMob.setMobClass(dataDict.getCode());
-            dataDict = dataDictService.findByParentCodeAndValue(DataType.MobType.getCode(), mobType);
-            mapMob.setMobType(dataDict.getCode());
+//            DataDict dataDict = dataDictService.findByParentCodeAndValue(DataType.Race.getCode(), faction);
+//            if (dataDict == null) {
+//                System.out.println("null race:" + race);
+//            }
+//            mapMob.setFaction(dataDict.getCode());
+//            dataDict = dataDictService.findByParentCodeAndValue(DataType.MobClass.getCode(), mobClass);
+//            if (dataDict == null) {
+//                System.out.println("null mobClass:" + mobClass);
+//            }
+//            mapMob.setMobClass(dataDict.getCode());
+//            dataDict = dataDictService.findByParentCodeAndValue(DataType.MobType.getCode(), mobType);
+//            mapMob.setMobType(dataDict.getCode());
             mapMob.setLevel(level);
             mapMob.setHp(hp);
             mapMob.setDamage(damage);
