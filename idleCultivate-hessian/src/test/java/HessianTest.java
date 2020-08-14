@@ -9,7 +9,7 @@ public class HessianTest {
     protected static final Logger logger = LogManager.getLogger(HessianTest.class);
 
     public static void main(String[] args) {
-        String url = "http://localhost:20000/remoting/UserService";
+        String url = "http://106.52.31.169:8080/idleCultivate-hessian-1.0-SNAPSHOT/remoting/UserService";
         HessianProxyFactory factory = new HessianProxyFactory();
         try {
             UserService userService = (UserService) factory.create(UserService.class, url);

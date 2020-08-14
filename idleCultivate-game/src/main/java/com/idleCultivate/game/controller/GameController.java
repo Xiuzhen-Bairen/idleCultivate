@@ -58,7 +58,8 @@ public class GameController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Object login(String username, String password) {
         String cipher = MD5Util.md5(password);
-        CommonResult commonResult = userService.login(username, cipher);
+//        CommonResult commonResult = userService.login(username, cipher);
+        CommonResult commonResult = null;
         if (commonResult.isSuccess()) {
             UserAccount userAccount = (UserAccount) commonResult.getData();
             httpSession.setAttribute(GameWorld.SK_User, userAccount);

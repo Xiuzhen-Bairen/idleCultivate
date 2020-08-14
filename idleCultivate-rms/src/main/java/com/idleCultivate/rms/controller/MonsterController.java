@@ -27,22 +27,22 @@ public class MonsterController extends ExcelController<Monster, MonsterQueryPara
         for (int rowNum = 2; rowNum <= sheet.getLastRowNum(); rowNum++) {
             XSSFRow row = (XSSFRow) sheet.getRow(rowNum);
             Integer mapId = Integer.valueOf(PoiUtil.getCellValue(row.getCell(1)));
-            Integer mapName = Integer.valueOf(PoiUtil.getCellValue(row.getCell(2)));
-            String name = PoiUtil.getCellValue(row.getCell(3));
-            Integer level = Integer.valueOf(PoiUtil.getCellValue(row.getCell(4)));
-            Integer race = Integer.valueOf(PoiUtil.getCellValue(row.getCell(5)));
-            Integer job = Integer.valueOf(PoiUtil.getCellValue(row.getCell(6)));
-            Integer att = Integer.valueOf(PoiUtil.getCellValue(row.getCell(7)));
-            Integer def = Integer.valueOf(PoiUtil.getCellValue(row.getCell(8)));
-            Integer hp = Integer.valueOf(PoiUtil.getCellValue(row.getCell(9)));
-            Integer crit = Integer.valueOf(PoiUtil.getCellValue(row.getCell(10)));
-            Integer dodge = Integer.valueOf(PoiUtil.getCellValue(row.getCell(11)));
-            Integer coordinate = Integer.valueOf(PoiUtil.getCellValue(row.getCell(12)));
-            Boolean is_hide = Boolean.valueOf(PoiUtil.getCellValue(row.getCell(13)));
-            String extra_info = PoiUtil.getCellValue(row.getCell(5));
+//            Integer mapName = Integer.valueOf(PoiUtil.getCellValue(row.getCell(2)));
+            String name = PoiUtil.getCellValue(row.getCell(2));
+            Integer level = Integer.valueOf(PoiUtil.getCellValue(row.getCell(3)));
+            Integer race = Integer.valueOf(PoiUtil.getCellValue(row.getCell(4)));
+            Integer job = Integer.valueOf(PoiUtil.getCellValue(row.getCell(5)));
+            Integer att = Integer.valueOf(PoiUtil.getCellValue(row.getCell(6)));
+            Integer def = Integer.valueOf(PoiUtil.getCellValue(row.getCell(7)));
+            Integer hp = Integer.valueOf(PoiUtil.getCellValue(row.getCell(8)));
+            Integer crit = Integer.valueOf(PoiUtil.getCellValue(row.getCell(9)));
+            Integer dodge = Integer.valueOf(PoiUtil.getCellValue(row.getCell(10)));
+            Integer coordinate = Integer.valueOf(PoiUtil.getCellValue(row.getCell(10)));
+//            Boolean is_hide = Boolean.valueOf(PoiUtil.getCellValue(row.getCell(11)));
+//            String extra_info = PoiUtil.getCellValue(row.getCell(12));
             Monster monster = new Monster();
             monster.setMapId(mapId);
-            monster.setMapName(mapName);
+//            monster.setMapName(mapName);
             monster.setName(name);
             monster.setLevel(level);
             monster.setRace(race);
@@ -53,8 +53,8 @@ public class MonsterController extends ExcelController<Monster, MonsterQueryPara
             monster.setCrit(crit);
             monster.setDodge(dodge);
             monster.setCoordinate(coordinate);
-            monster.setIs_hide(is_hide);
-            monster.setExtra_info(extra_info);
+//            monster.setIs_hide(is_hide);
+//            monster.setExtra_info(extra_info);
             monster.setCreateUser(createUser);
             monsterList.add(monster);
         }

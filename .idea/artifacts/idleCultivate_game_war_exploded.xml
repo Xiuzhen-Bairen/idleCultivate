@@ -37,6 +37,11 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: io.netty:netty-all:4.1.16.Final" />
+          <element id="library" level="project" name="Maven: io.protostuff:protostuff-core:1.5.0" />
+          <element id="library" level="project" name="Maven: io.protostuff:protostuff-api:1.5.0" />
+          <element id="library" level="project" name="Maven: io.protostuff:protostuff-runtime:1.5.0" />
+          <element id="library" level="project" name="Maven: io.protostuff:protostuff-collectionschema:1.5.0" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: com.caucho:hessian:4.0.60" />
           <element id="library" level="project" name="Maven: com.github.dozermapper:dozer-core:6.5.0" />

@@ -31,21 +31,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public CommonResult login(String username, String password) {
+    public UserAccount login(String username, String password) {
         try {
             UserAccount userAccount = userAccountManager.login(username, password);
             if (userAccount == null) {
-                return CommonResult.fail("用户名或密码错误！");
+                logger.info("用户名或密码错误！");
             }
 
             if (userAccount.getStatus() == 1) {
-                return CommonResult.fail("账号已冻结！");
+                logger.info("账号已冻结！");
             }
-
-            return CommonResult.success("", userAccount);
+            logger.info("登录成功！");
+            return userAccount;
         } catch (Exception ex) {
             logger.error("用户登录失败：" + ex.getMessage(), ex);
-            return CommonResult.fail("用户登录失败");
+            return null;
         }
     }
 }
