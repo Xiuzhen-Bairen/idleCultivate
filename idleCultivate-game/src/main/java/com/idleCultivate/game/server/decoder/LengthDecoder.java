@@ -1,4 +1,4 @@
-package com.idleCultivate.game.decoder;
+package com.idleCultivate.game.server.decoder;
 
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 

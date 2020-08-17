@@ -1,7 +1,10 @@
-package com.idleCultivate.game.util;
+package com.idleCultivate.game.server.message;
 
 public class TypeProtocol {
     // 客户端发送的消息类型
+
+    public static final int TYPE_REGISTER = 10000001;     //注册
+
     public static final int CLoadCache = 30000001;     // 缓存加载
 
     public static final int TYPE_LOGIN = 30001001;         // 登陆

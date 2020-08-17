@@ -1,6 +1,6 @@
-package com.idleCultivate.game.encoder;
+package com.idleCultivate.game.server.encoder;
 
-import com.idleCultivate.game.util.SocketModel;
+import com.idleCultivate.game.server.message.SocketMessage;
 import com.idleCultivate.game.util.CoderUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -11,10 +11,10 @@ import io.protostuff.ProtobufIOUtil;
 import io.protostuff.Schema;
 import io.protostuff.runtime.RuntimeSchema;
 
-public class MessageEncoder extends MessageToByteEncoder<SocketModel> {
-    private Schema<SocketModel> schema = RuntimeSchema.getSchema(SocketModel.class);
+public class MessageEncoder extends MessageToByteEncoder<SocketMessage> {
+    private Schema<SocketMessage> schema = RuntimeSchema.getSchema(SocketMessage.class);
     @Override
-    protected void encode(ChannelHandlerContext ctx, SocketModel message,
+    protected void encode(ChannelHandlerContext ctx, SocketMessage message,
                           ByteBuf out) throws Exception {
         //System.out.println("encode");
         LinkedBuffer buffer = LinkedBuffer.allocate(1024);

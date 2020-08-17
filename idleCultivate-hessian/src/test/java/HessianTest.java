@@ -1,5 +1,6 @@
 import com.caucho.hessian.client.HessianProxyFactory;
 import com.idleCultivate.common.model.CommonResult;
+import com.idleCultivate.user.model.UserAccount;
 import com.idleCultivate.user.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,8 +14,8 @@ public class HessianTest {
         HessianProxyFactory factory = new HessianProxyFactory();
         try {
             UserService userService = (UserService) factory.create(UserService.class, url);
-            CommonResult commonResult = userService.register("testuser666", "123456", "127.0.0.1");
-            logger.info(commonResult);
+            UserAccount userAccount = userService.register("testuser666", "123456", "127.0.0.1");
+            logger.info(userAccount.toString());
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             e.printStackTrace();

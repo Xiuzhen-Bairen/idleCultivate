@@ -1,8 +1,8 @@
-package com.idleCultivate.game.util;
+package com.idleCultivate.game.server.message;
 
 import java.util.List;
 
-public class SocketModel {
+public class SocketMessage {
     private int type;
     private int area;
     private int command;

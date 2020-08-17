@@ -14,7 +14,7 @@ public class UserAccountManager {
         return userAccountMapper.findByUsername(username);
     }
 
-    public void register(String username, String password, String ip) {
+    public UserAccount register(String username, String password, String ip) {
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
@@ -24,6 +24,7 @@ public class UserAccountManager {
         if (effected == 0) {
             throw new RuntimeException("sql effected 0 rows");
         }
+        return userAccount;
     }
 
     public UserAccount login(String username, String password) {

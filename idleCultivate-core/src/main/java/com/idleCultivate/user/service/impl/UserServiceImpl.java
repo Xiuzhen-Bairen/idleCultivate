@@ -1,6 +1,5 @@
 package com.idleCultivate.user.service.impl;
 
-import com.idleCultivate.common.model.CommonResult;
 import com.idleCultivate.user.manager.UserAccountManager;
 import com.idleCultivate.user.model.UserAccount;
 import com.idleCultivate.user.service.UserService;
@@ -15,18 +14,18 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserAccountManager userAccountManager;
 
-    public CommonResult register(String username, String password, String ip) {
+    public UserAccount register(String username, String password, String ip) {
         try {
             UserAccount userAccount = userAccountManager.findByUsername(username);
             if (userAccount != null) {
-                return CommonResult.fail("此用户名已被注册！");
+                logger.info("此用户名已被注册！");
+                return null;
             }
 
-            userAccountManager.register(username, password, ip);
-            return CommonResult.success();
+            return userAccountManager.register(username, password, ip);
         } catch (Exception ex) {
             logger.error("用户注册失败：" + ex.getMessage(), ex);
-            return CommonResult.fail("用户注册失败");
+            return null;
         }
     }
 

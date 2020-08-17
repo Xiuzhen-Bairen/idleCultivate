@@ -14,5 +14,7 @@ public class LoginProtocol {
     public static final int Login_InvalidUsername = 1;//无效用户名
     public static final int Login_InvalidPassword = 2;//密码错误
 
+    public static final int Login_UnknownError = 3;//密码错误
+
     public static final int Login_Succeed = 10;//登陆成功
 }

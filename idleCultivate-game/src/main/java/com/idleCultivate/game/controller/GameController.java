@@ -50,7 +50,8 @@ public class GameController {
         }
 
         String cipher = MD5Util.md5(password);
-        CommonResult commonResult = userService.register(username, cipher, ip);
+        CommonResult commonResult = null;
+//        CommonResult commonResult = userService.register(username, cipher, ip);
         return commonResult;
     }
 
